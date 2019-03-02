@@ -9,7 +9,6 @@ var db = require("../models");
 class Burger {
 
     constructor() {
-//        console.log(db);
     }
 
     getBurgers(aCallback) {
@@ -28,20 +27,41 @@ class Burger {
             isDevoured: newBurger.isDevoured
         }).then(function (burger) {
             myCallback(burger);
+        }).catch(err => {
+            myCallback(err);
         });
+;
     }
 
     // Delete a burger
     deleteBurger(burger, myCallback) {
+        db.burgers.destroy({
+            where: {
+                id: burger.id
+            }
+        })
+        .then(function () {
+            myCallback();
+        });
     }
 
     // Devour a burger and send back the updated burger
-    devourBurger(burger, myCallback) {
-    }
-
-    // Update a burger and send back the updated burger
     updateBurger(burger, myCallback) {
-
+        db.burgers.update({
+            name: burger.name,
+            isDevoured: burger.isDevoured
+        }, {
+            where: {
+                id: burger.id
+            }
+        })
+        .then(function (burger) {
+            myCallback(null, burger);
+        })
+        // Must catch any error including validation errors and return to client who must deal with it
+        .catch(err => {
+            myCallback(err, null);
+        });
     }
 } // End Class
 

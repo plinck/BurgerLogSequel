@@ -91,7 +91,7 @@ $(document).ready(function () {
                 burgerRenderNotDevoured(data);
 
                 $("#burger-name").text(data.name);
-                // Show the bootstrap modal dialog\
+                // Show the bootstrap modal dialog
                 $("#results-modal-dialog").modal("toggle");
 
                 // This line was to force reload of the handlebars file but its a sucky hack and makes modal useless
@@ -114,6 +114,7 @@ $(document).ready(function () {
         // Create an object for the user"s data
         let burgerData = {};
         burgerData.id = parseInt($(event.target).attr("data-value"));
+        burgerData.name = $(event.target).attr("data-name");
         burgerData.isDevoured = true;
 
         // Remove from not devoured DOM

@@ -29,28 +29,39 @@ router.post("/burgers", (req, res) => {
     const newBurger = req.body;
 
     // Add the the burger to not eaten
-    burger.addBurger(newBurger, (burger) => {
-        // Send the new burger back via JSON and fix on client 
-        res.json(burger);
+    burger.addBurger(newBurger, (err, burger) => {
+        if (err) {
+            console.log(`errror: ${err.SequelizeValidationError}`);
+            res.end();
+        } else {
+            // Send the new burger back via JSON and fix on client 
+            res.json(burger);
+        }
     });
-
 });
 
 router.put("/burgers", (req, res) => {
     const updatedBurger = req.body;
 
     // Add the the burger to not eaten
-    burger.updateBurger(updatedBurger, (burger) => {
-        // Send the new burger back via JSON and fix on client 
-        res.json(burger);
+    burger.updateBurger(updatedBurger, (err, burger) => {
+        if (err) {
+            console.log(`errror: ${err.SequelizeValidationError}`);
+            res.end();
+        } else {
+            // Send the new burger back via JSON and fix on client 
+            console.log(burger);
+            res.json(burger);
+        }
     });
-
 });
 
 router.delete("/burgers/:id", (req, res) => {
     const deleteId = parseInt(req.params.id);
     // Delete the the burger to
-    burger.deleteBurger({id: deleteId}, () => {
+    burger.deleteBurger({
+        id: deleteId
+    }, () => {
         res.end();
     });
 
