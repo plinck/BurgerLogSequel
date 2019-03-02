@@ -26,9 +26,9 @@ class Burger {
             name: newBurger.name,
             isDevoured: newBurger.isDevoured
         }).then(function (burger) {
-            myCallback(burger);
+            myCallback(null, newBurger);
         }).catch(err => {
-            myCallback(err);
+            myCallback(err, null);
         });
 ;
     }
@@ -46,17 +46,17 @@ class Burger {
     }
 
     // Devour a burger and send back the updated burger
-    updateBurger(burger, myCallback) {
+    updateBurger(updatedBurger, myCallback) {
         db.burgers.update({
-            name: burger.name,
-            isDevoured: burger.isDevoured
+            name: updatedBurger.name,
+            isDevoured: updatedBurger.isDevoured
         }, {
             where: {
-                id: burger.id
+                id: updatedBurger.id
             }
         })
         .then(function (burger) {
-            myCallback(null, burger);
+            myCallback(null, updatedBurger);
         })
         // Must catch any error including validation errors and return to client who must deal with it
         .catch(err => {

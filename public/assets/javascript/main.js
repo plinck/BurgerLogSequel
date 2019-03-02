@@ -45,7 +45,7 @@ $(document).ready(function () {
         <button type="button" class="btn btn-primary burgersNotDevoured">${burger.name}</button>
     </div>
     <div class="col-6-sm mx-2">
-        <button data-value=${burger.id} type="submit" class="devour btn btn-warning" title="Click to eat the ${burger.name} burger.">Devour>></button>
+        <button data-value=${burger.id} data-name="${burger.name}" type="submit" class="devour btn btn-warning" title="Click to eat the ${burger.name} burger.">Devour>></button>
     </div>
     `;
 
