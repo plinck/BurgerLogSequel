@@ -26,11 +26,10 @@ class Burger {
             name: newBurger.name,
             isDevoured: newBurger.isDevoured
         }).then(function (burger) {
-            myCallback(null, newBurger);
+            myCallback(null, {id: burger.id, name: newBurger.name});
         }).catch(err => {
             myCallback(err, null);
         });
-;
     }
 
     // Delete a burger
