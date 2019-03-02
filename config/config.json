@@ -11,7 +11,14 @@
             "min": 0,
             "acquire": 30000,
             "idle": 10000
-        }
+        },
+        "define": {
+            "underscored": false,
+            "freezeTableName": true,
+            "timestamps": true
+        },
+        "logging": false,
+        "operatorsAliases": false
     },
     "test": {
         "username": "SQL_USER",

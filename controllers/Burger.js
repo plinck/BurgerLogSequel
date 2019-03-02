@@ -6,7 +6,7 @@ const path = require('path');
 // Requiring our models
 var db = require("../models");
 
-class BurgerModel {
+class Burger {
 
     constructor() {
 //        console.log(db);
@@ -45,4 +45,4 @@ class BurgerModel {
     }
 } // End Class
 
-module.exports = BurgerModel;
+module.exports = Burger;
