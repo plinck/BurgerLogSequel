@@ -1,0 +1,20 @@
+{
+  "name": "burgerlogsequel",
+  "version": "1.0.0",
+  "description": "Tracks Burgers Devoured",
+  "main": "server.js",
+  "scripts": {
+    "production": "node server",
+    "test": "nodemon server"
+  },
+  "author": "Paul Linck",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.42.1",
+    "valid-url": "^1.0.9"
+  }
+}
