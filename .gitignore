@@ -52,6 +52,8 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
+# dotenv environment variables file
+app.yaml
 
 # =========================
 # Operating System Files

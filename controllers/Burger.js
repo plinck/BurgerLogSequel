@@ -12,7 +12,6 @@ class Burger {
     }
 
     getBurgers(aCallback) {
-        // WHY DOESNT db.Burger work???
         db.burgers.findAll({}).then( burgers => {
             aCallback(burgers);
         });
